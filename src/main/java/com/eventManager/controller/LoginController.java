@@ -11,6 +11,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class LoginController{
     private UserDao UsDao;
+
+    @RequestMapping("/login")
+    public String Login(){
+        return "Login";
+    }
+
     @RequestMapping(value="/Log", method=RequestMethod.POST)
     public String log(@RequestParam("Email")String email, @RequestParam("password")String password, Model model) {
         boolean redirect=UsDao.checkLogin(email,password);

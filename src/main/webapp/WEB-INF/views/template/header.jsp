@@ -81,7 +81,7 @@
                         <a class="page-scroll" href="<c:url value="/login" />#portfolio">Login</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<c:url value="/register"/>#services">Register</a>
+                        <a class="page-scroll" href="<c:url value="/registrazione"/>#services">Register</a>
                     </li>
                 </c:if>
             </ul>

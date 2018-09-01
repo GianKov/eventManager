@@ -12,6 +12,11 @@ import org.springframework.ui.Model;
 public class RegistrationController {
     private UserDao UsDao;
 
+    @RequestMapping("/registrazione")
+    public String Registrazione(){
+        return "registrazione";
+    }
+
     @RequestMapping(value="/Register", method=RequestMethod.POST)
     public String executeRegister(@RequestParam("first_name")String first_name,@RequestParam("last_name")String last_name,@RequestParam("DataN")String DataN,@RequestParam("indirizzo")String indirizzo, @RequestParam("email")String email, @RequestParam("password")String password, @RequestParam("password_confirmation")String password_confirmation, Model model){
         String msg="mamma";
