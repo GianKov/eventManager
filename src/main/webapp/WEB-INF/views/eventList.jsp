@@ -6,22 +6,10 @@
             <h1 class="section-heading">Tutti gli eventi disponibili!</h1>
         </div>
     </div>
-    <form role="form" id="form-buscar" action="<c:url value="/event/research"/>" method="post">
-        <div class="form-group">
-            <div class="input-group">
-                <input id="1" class="form-control" type="text" name="search" placeholder="Search..." required/>
-                <span class="input-group-btn">
-                <button class="btn btn-success" type="submit" value="search">
-                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
-                </button>
-                </span>
-            </div>
-        </div>
-    </form>
+
     <table class="table">
         <thead>
         <tr>
-
             <th scope="col">Nome</th>
             <th scope="col">Data</th>
             <th scope="col">Luogo</th>
@@ -43,5 +31,17 @@
         </c:forEach>
         </tbody>
     </table>
+    <form role="form" id="form-buscar" action="<c:url value="/event/research"/>" method="post">
+        <div class="form-group">
+            <div class="input-group">
+                <input id="1" class="form-control" type="text" name="search" placeholder="Search..." required/>
+                <span class="input-group-btn">
+                <button class="btn btn-success" type="submit" value="search">
+                    <i class="glyphicon glyphicon-search" aria-hidden="true"></i> Search
+                </button>
+                </span>
+            </div>
+        </div>
+    </form>
 
 </section>
