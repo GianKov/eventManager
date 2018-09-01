@@ -11,7 +11,10 @@
                 <hr class="colorgraph">
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
-                        <div class="form-group">
+                        <form action="Register" method="post">
+                            <input type="submit" value="submit">
+                        </form>
+                            <div class="form-group">
                             <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
                         </div>
                     </div>
@@ -22,15 +25,18 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="display_name" id="display_name" class="form-control input-lg" placeholder="Display Name" tabindex="3">
+                    <input type="text" name="DataN" id="DataN" class="form-control input-lg" placeholder="Data di nascita" tabindex="3">
                 </div>
                 <div class="form-group">
-                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
+                    <input type="indirizzo" name="" id="indirizzo" class="form-control input-lg" placeholder="Indirizzo" tabindex="4">
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="5">
                 </div>
                 <div class="row">
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5">
+                            <input type="password" name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="6">
                         </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
