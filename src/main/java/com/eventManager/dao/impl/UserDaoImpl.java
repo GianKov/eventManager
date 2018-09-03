@@ -3,11 +3,12 @@ package com.eventManager.dao.impl;
 import com.eventManager.model.User;
 import com.eventManager.DBManager;
 import com.eventManager.dao.UserDao;
-
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Random;
+import java.util.Random;
 
 public class UserDaoImpl implements UserDao {
 
@@ -20,7 +21,7 @@ public class UserDaoImpl implements UserDao {
         if (email != "" && password != "") {
             DBManager db= new DBManager();
             Connection con= db.getConnection();
-            String sql = "SELECT ID FROM UTENTE WHERE ID LIKE ? AND PASSWORD LIKE ?";
+            String sql = "SELECT ID FROM UTENTE WHERE EMAIL LIKE ? AND PASSWORD LIKE ?";
             PreparedStatement prepStat = null;
             ResultSet rs = null;
             try {
@@ -45,6 +46,8 @@ public class UserDaoImpl implements UserDao {
 
     public boolean registerNewUser(String name, String surname, String birthDate, String Address, String email, String password, String password2){
         boolean check=false;
+        Random rand = new Random();
+
         if(!password.equals(password2))
             return check;
         User account = new User();

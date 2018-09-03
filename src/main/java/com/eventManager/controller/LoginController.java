@@ -1,6 +1,7 @@
 package com.eventManager.controller;
 
 import com.eventManager.dao.UserDao;
+import com.eventManager.dao.impl.UserDaoImpl;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.lang.String;
@@ -10,7 +11,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class LoginController{
-    private UserDao UsDao;
+
+    private UserDao UsDao= new UserDaoImpl();
 
     @RequestMapping("/login")
     public String Login(){
@@ -18,11 +20,11 @@ public class LoginController{
     }
 
     @RequestMapping(value="/Log", method=RequestMethod.POST)
-    public String log(@RequestParam("Email")String email, @RequestParam("password")String password, Model model) {
+    public String log(@RequestParam("inputEmail")String email, @RequestParam("inputPassword")String password, Model model) {
         boolean redirect=UsDao.checkLogin(email,password);
         String err;
         if(redirect){
-            return "Login";
+            return "home";
         }else{
             err="Credenziali non valide, riprova!";
             if(email.equals(""))

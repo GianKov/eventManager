@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Camarket</title>
+    <title>eventManager</title>
     <!--Angular JS-->
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.1/angular.min.js"></script>
@@ -50,7 +50,7 @@
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                 <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
             </button>
-            <a class="navbar-brand page-scroll" href="<c:url value="/" />#page-top">Camarket</a>
+            <a class="navbar-brand page-scroll" href="<c:url value="/" />#page-top">eventManager</a>
 
         </div>
 

@@ -8,24 +8,21 @@
         <div class="main-div">
             <div class="panel">
                 <h2>Login</h2>
-                <form action="Log" method="post">
-                    <input type="submit" value="submit">
-                </form>
                 <p>Please enter your email and password</p>
             </div>
 
-            <form id="Login">
+            <form id="Login" action="Log" method="post">
 
                 <div class="form-group">
 
 
-                    <input type="email" class="form-control" id="inputEmail" placeholder="Email Address">
+                    <input type="email" class="form-control" name="inputEmail" placeholder="Email Address">
 
                 </div>
 
                 <div class="form-group">
 
-                    <input type="password" class="form-control" id="inputPassword" placeholder="Password">
+                    <input type="password" class="form-control" name="inputPassword" placeholder="Password">
 
                 </div>
                 <div class="forgot">
@@ -35,7 +32,8 @@
 
             </form>
         </div>
-    </div></div></div>
+    </div></div>
+</div>
 
 
 </body>

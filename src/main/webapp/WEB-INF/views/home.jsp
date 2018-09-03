@@ -3,9 +3,9 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
-            <h1 id="homeHeading">Welcome to Camarket Online Store</h1>
+            <h1 id="homeHeading">Welcome to eventManager Online Store</h1>
             <hr>
-            <p>Camarket is the Big Online Store for All kind of products. We also free delivery all kind of our products as your ordering! So we are always stay-connecting with all customers!</p>
+            <p>eventManager is the Big Online Store for All kind of products. We also free delivery all kind of our products as your ordering! So we are always stay-connecting with all customers!</p>
             <form role="form" id="form-buscar" action="<c:url value="/event/research"/>" method="post">
                 <div class="form-group">
                     <div class="input-group">
