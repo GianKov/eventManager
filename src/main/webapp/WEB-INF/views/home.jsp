@@ -3,6 +3,7 @@
 <header>
     <div class="header-content">
         <div class="header-content-inner">
+            <c:if test="${Error=='Login effettuato correttamente'}"><div class="alert alert-success">${Error}</div></c:if>
             <h1 id="homeHeading">Welcome to eventManager Online Store</h1>
             <hr>
             <p>eventManager is the Big Online Store for All kind of products. We also free delivery all kind of our products as your ordering! So we are always stay-connecting with all customers!</p>

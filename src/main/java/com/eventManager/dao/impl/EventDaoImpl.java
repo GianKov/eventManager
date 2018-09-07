@@ -3,6 +3,7 @@ package com.eventManager.dao.impl;
 import com.eventManager.DBManager;
 import com.eventManager.dao.EventDao;
 import com.eventManager.model.Event;
+import com.eventManager.model.Sector;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Connection;
@@ -44,33 +45,19 @@ public class EventDaoImpl implements EventDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("wewe");
-        for(Event evento:eventList){
-            System.out.println(evento.getIdEvent());
-        }
+
         return eventList;
     }
 
     @Override
     public List<Event> getEventListByName(String res){
-        DBManager db = new DBManager();
-        Connection con = db.getConnection();
-        PreparedStatement prepStat = null;
-        ResultSet rs = null;
-        System.out.println("Entro nel metodo");
+        DBManager dbObj=new DBManager();
         List<Event> eventList = new ArrayList<Event>();
         String resU=res.toUpperCase();
-
+        String sql = "SELECT * FROM EVENTO WHERE NOME='"+resU+"' "+"OR LUOGO='"+resU+"'";
+        System.out.println(sql);
+        ResultSet rs=dbObj.executeQuery(sql);
         try {
-            System.out.println("Entro nel try");
-            String sql = "SELECT * FROM EVENTO WHERE NOME=? OR LUOGO=?";
-
-            prepStat = con.prepareStatement(sql);
-            prepStat.setString(1,resU);
-            prepStat.setString(2,resU);
-
-            rs = prepStat.executeQuery();
-
             while (rs.next()) {
                 Event eventToAdd = new Event();
                 eventToAdd.setIdEvent(rs.getString("ID"));
@@ -80,16 +67,8 @@ public class EventDaoImpl implements EventDao {
                 //System.out.println(rs.getString("LUOGO")+rs.getString("NOME")+rs.getString("ID"));
                 eventList.add(eventToAdd);
             }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        System.out.println("wewe");
-        for(Event evento:eventList){
-            System.out.println(evento.getIdEvent());
-        }
+        }catch(SQLException e){e.printStackTrace();}
         return eventList;
-
-
     }
 
     @Override
@@ -129,10 +108,33 @@ public class EventDaoImpl implements EventDao {
     }
 
     @Override
-    public Event getEventByName(String name){
-        Event event=null;
-        return event;
+    public List<Sector> getSectorList(String idEv){
+        List <Sector> sectorList = new ArrayList<Sector>();
+        DBManager dbObj=new DBManager();
+        Connection con = dbObj.getConnection();
+        PreparedStatement prepStat = null;
+        ResultSet rs = null;
+        try{
+            String sql="SELECT * FROM SETTORE WHERE IDEVENTO=?";
+            prepStat = con.prepareStatement(sql);
+            prepStat.setString(1,idEv);
+            rs=prepStat.executeQuery();
+            while(rs.next()){
+                Sector secToAdd=new Sector();
+                secToAdd.setIdSector(rs.getString("IDSETTORE"));
+                secToAdd.setName(rs.getString("NOME"));
+                secToAdd.setPrice(rs.getString("PREZZO"));
+                secToAdd.setSeatsAvail(rs.getString("POSTIDISPONIBILI"));
+                sectorList.add(secToAdd);
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return sectorList;
     }
+
+
 
 
 

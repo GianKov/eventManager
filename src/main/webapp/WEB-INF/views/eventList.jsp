@@ -1,7 +1,9 @@
 
 <%@include file="/WEB-INF/views/template/header.jsp"%>
+
 <section id="services">
     <div class="container-fluid">
+        <c:if test="${!(Successo==null)}"><div class="alert alert-success">${Successo}</div></c:if>
         <div class="col-lg-8 col-lg-offset-2 text-center">
             <h1 class="section-heading">Tutti gli eventi disponibili!</h1>
         </div>

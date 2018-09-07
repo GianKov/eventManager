@@ -13,24 +13,31 @@ import java.util.Random;
 public class UserDaoImpl implements UserDao {
 
     @Override
-    public boolean checkLogin (String email, String password){
+    public User checkLogin (String email, String password){
         boolean check=false;
-        User user2 = new User();
-        user2.setEmail(email);
-        user2.setPassword(password);
-        if (email != "" && password != "") {
-            DBManager db= new DBManager();
-            Connection con= db.getConnection();
-            String sql = "SELECT ID FROM UTENTE WHERE EMAIL LIKE ? AND PASSWORD LIKE ?";
-            PreparedStatement prepStat = null;
-            ResultSet rs = null;
-            try {
+        User user = new User();
+        user.setEmail("null");
+        DBManager db= new DBManager();
+        Connection con= db.getConnection();
+        String sql = "SELECT * FROM UTENTE WHERE EMAIL LIKE ? AND PASSWORD LIKE ?";
+        PreparedStatement prepStat = null;
+        ResultSet rs = null;
+        try {
                 prepStat = con.prepareStatement(sql);
-                prepStat.setString(1, user2.getEmail());
-                prepStat.setString(2, user2.getPassword());
+                prepStat.setString(1, email);
+                prepStat.setString(2, password);
                 rs = prepStat.executeQuery();
-                if(rs.next()){
-                    check=true;
+                if(!(rs.next())){
+
+                    return user;
+                }
+                else{
+
+                    user.setEmail(rs.getString("EMAIL"));
+                    user.setPassword(rs.getString("PASSWORD"));
+                    user.setIdUser(rs.getString("ID"));
+                    user.setIndirizzo(rs.getString("INDIRIZZO"));
+                    user.setNome(rs.getString("NOME"));
                 }
             }catch (SQLException e) {
                 e.printStackTrace();
@@ -40,8 +47,8 @@ public class UserDaoImpl implements UserDao {
                 try { prepStat.close(); } catch (Exception e) {}
                 try { con.close(); } catch (Exception e) {}
             }
-        }
-        return check;
+
+        return user;
     }
 
     public boolean registerNewUser(String name, String surname, String birthDate, String Address, String email, String password, String password2){

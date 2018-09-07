@@ -1,13 +1,13 @@
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
-<div class="container">
-    <div class="col-lg-8 col-lg-offset-2 text-center">
-        <h1 class="section-heading">Registrazione</h1>
+<section id="services">
+    <div class="container-fluid">
+        <div class="col-lg-8 col-lg-offset-2 text-center">
+            <h1 class="section-heading">Registrati</h1>
+        </div>
     </div>
-    <div class="row">
         <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
             <form role="form" action="Register" method=post>
-                <h2>Registrati</h2>
                 <hr class="colorgraph">
                 <div class="row">
 
@@ -44,12 +44,6 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-xs-4 col-sm-3 col-md-3">
-					<span class="button-checkbox">
-						<button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
-                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
-					</span>
-                    </div>
                     <div class="col-xs-8 col-sm-9 col-md-9">
                         By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
                     </div>
@@ -84,5 +78,5 @@
         </div><!-- /.modal-dialog -->
     </div><!-- /.modal -->
 </div>
+</section>
 
-<%@include file="/WEB-INF/views/template/footer.jsp"%>

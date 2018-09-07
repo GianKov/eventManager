@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html;charset=UTF-8"  %>
+<%@ page import = "java.io.*,java.util.*" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,9 +44,16 @@
 </head>
 
 <body id="page-top">
-
+<%
+    String osp = new String("guest");
+    String utente = new String("user");
+    if(session.isNew()){
+        session.setAttribute(utente,osp);}
+     System.out.println(session.getAttribute("user"));
+%>
 <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
+
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -66,27 +75,29 @@
                 <li>
                     <a class="page-scroll" href="<c:url value="/"/>#contact">Contact</a>
                 </li>
-                <c:if test="${pageContext.request.userPrincipal.name !=null}">
-                    <li><a>Welcome: ${pageContext.request.userPrincipal.name}</a></li>
+                <% if (!(session.getAttribute("user").equals("guest"))) { %>
+                    <li><a>Benvenuto <% out.println(session.getAttribute("nomeUser")); %></a></li>
+                    <li><a href="<c:url value="/cart/getCart" />">Carrello</a></li>
                     <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
-                    <c:if test="${pageContext.request.userPrincipal.name != 'admin'}">
-                        <li><a href="<c:url value="/cart" />">Cart</a></li>
-                    </c:if>
-                    <c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
-                        <li><a href="<c:url value="/admin" />#portfolio">Admin</a></li>
-                    </c:if>
-                </c:if>
-                <c:if test="${pageContext.request.userPrincipal.name == null}">
+                <%--<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">--%>
+
+                <%--//</c:if>--%>
+                <%--<c:if test="${pageContext.request.userPrincipal.name == 'admin'}">
+                    <li><a href="<c:url value="/admin" />#portfolio">Admin</a></li>
+                </c:if>--%>
+                <% } %>
+                <% if (session.getAttribute("user").equals("guest")) { %>
                     <li>
                         <a class="page-scroll" href="<c:url value="/login" />#portfolio">Login</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="<c:url value="/registrazione"/>#services">Register</a>
                     </li>
-                </c:if>
+                <% } %>
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
 </nav>
+</body>

@@ -8,6 +8,27 @@ public class Event {
     private String eventName;
     private String place;
     private String category;
+    private String date;
+    private String price;
+    private String seats;
+
+    public String getPrice() {
+        return price;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public String getSeats() {
+        return seats;
+    }
+
+    public void setSeats(String seats) {
+        this.seats = seats;
+    }
+
+
 
     public String getDate() {
         return date;
@@ -17,7 +38,7 @@ public class Event {
         this.date = date;
     }
 
-    private String date;
+
 
     public String getIdEvent() {
         return idEvent;

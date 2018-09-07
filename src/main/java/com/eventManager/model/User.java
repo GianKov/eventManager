@@ -5,6 +5,9 @@ public class User {
     private String cognome;
     private String email;
     private String password;
+    private String dataN;
+    private String indirizzo;
+    private String idUser;
 
     public String getNome() {
         return nome;
@@ -62,8 +65,6 @@ public class User {
         this.idUser = idUser;
     }
 
-    private String dataN;
-    private String indirizzo;
-    private String idUser;
+
 
 }
