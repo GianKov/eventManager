@@ -1,6 +1,5 @@
 package com.eventManager.dao.impl;
 
-import com.eventManager.DBManager;
 import com.eventManager.dao.EventDao;
 import com.eventManager.model.Event;
 import com.eventManager.model.Sector;

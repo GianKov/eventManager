@@ -23,7 +23,7 @@
             <c:if test="${!(Error==null)}"><div class="alert alert-danger">${Error}</div></c:if>
             <hr class="colorgraph">
             <div class="row">
-                <div class="col-xs-12 col-md-6"><input type="submit" value="Login" class="btn btn-primary btn-block btn-lg" ></div>
+                <div class="col-md-6 mx-auto"><input type="submit" value="Login" class="btn btn-primary btn-block btn-lg " ></div>
             </div>
         </form>
     </div>

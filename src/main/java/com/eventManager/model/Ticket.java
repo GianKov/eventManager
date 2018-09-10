@@ -8,9 +8,10 @@ public class Ticket {
     private String cartid;
     private String secName;
     private String eventName;
-    private String price;
+    private Float price;
     private String date;
     private String place;
+    private String qrImage;
 
     public String getSecName() {
         return secName;
@@ -28,11 +29,11 @@ public class Ticket {
         this.eventName = eventName;
     }
 
-    public String getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
@@ -84,6 +85,14 @@ public class Ticket {
 
     public void setCartid(String cartid) {
         this.cartid = cartid;
+    }
+
+    public String getQrImage() {
+        return qrImage;
+    }
+
+    public void setQrImage(String qrImage) {
+        this.qrImage = qrImage;
     }
 
 

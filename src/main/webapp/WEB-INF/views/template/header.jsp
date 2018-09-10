@@ -49,7 +49,6 @@
     String utente = new String("user");
     if(session.isNew()){
         session.setAttribute(utente,osp);}
-     System.out.println(session.getAttribute("user"));
 %>
 <nav id="mainNav" class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -78,7 +77,8 @@
                 <% if (!(session.getAttribute("user").equals("guest"))) { %>
                     <li><a>Benvenuto <% out.println(session.getAttribute("nomeUser")); %></a></li>
                     <li><a href="<c:url value="/cart/getCart" />">Carrello</a></li>
-                    <li><a href="<c:url value="/j_spring_security_logout" />">Logout</a></li>
+                    <li><a href="<c:url value="/payment/resume" />">Acquisti</a></li>
+                    <li><a href="<c:url value="/logout" />">Logout</a></li>
                 <%--<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">--%>
 
                 <%--//</c:if>--%>

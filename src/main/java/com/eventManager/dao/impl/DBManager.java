@@ -1,4 +1,4 @@
-package com.eventManager;
+package com.eventManager.dao.impl;
 
 
 import java.sql.*;

@@ -1,13 +1,11 @@
 package com.eventManager.dao.impl;
 
 import com.eventManager.model.User;
-import com.eventManager.DBManager;
 import com.eventManager.dao.UserDao;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.util.Random;
 import java.util.Random;
 
 public class UserDaoImpl implements UserDao {

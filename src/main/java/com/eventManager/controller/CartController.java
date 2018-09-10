@@ -47,9 +47,22 @@ public class CartController {
 
     @RequestMapping("/getCart")
     public String retrieveCart(HttpSession session, Model model){
-        List<Ticket> tickets=cartDao.getAllTick((String)session.getAttribute("user"));
+        List<Ticket> tickets=cartDao.getAllTick((String)session.getAttribute("user"),"ATTESA");
         model.addAttribute("tickets",tickets);
         return "cart";
 
+    }
+
+    @RequestMapping(value="/delTicket", method= RequestMethod.POST)
+    public String deleteTicket(@RequestParam("idTick")String idTick, RedirectAttributes redirectAttributes){
+        boolean check=cartDao.deleteTick(idTick);
+        if(check) {
+            redirectAttributes.addFlashAttribute("TickRemoved","Biglietto rimosso correttamente!");
+            return "redirect:/cart/getCart";
+        }
+        else {
+            redirectAttributes.addFlashAttribute("TickNotRemoved","Non e stato possibile rimuovere il biglietto!");
+            return "redirect:/cart/getCart";
+        }
     }
 }
