@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page language="java" contentType="text/html;charset=UTF-8"  %>
+<%@ page language="java" contentType="text/html;charset=UTF-8" pageEncoding="UTF-8"  %>
 <%@ page import = "java.io.*,java.util.*" %>
 
 <!DOCTYPE html>
@@ -7,7 +7,8 @@
 
 <head>
 
-    <meta charset="utf-8">
+    <%--<meta CHARSET='utf-8'>--%>
+    <meta http-equiv="Content-type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
@@ -66,13 +67,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="<c:url value="/" />#about">About</a>
+                    <a class="page-scroll" href="<c:url value="/event/eventList"/>#services">Eventi</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="<c:url value="/event/eventList"/>#services">Products</a>
-                </li>
-                <li>
-                    <a class="page-scroll" href="<c:url value="/"/>#contact">Contact</a>
+                    <a class="page-scroll" href="<c:url value="/"/>#contact">Contattaci</a>
                 </li>
                 <% if (!(session.getAttribute("user").equals("guest"))) { %>
                     <li><a>Benvenuto <% out.println(session.getAttribute("nomeUser")); %></a></li>
@@ -91,7 +89,7 @@
                         <a class="page-scroll" href="<c:url value="/login" />#portfolio">Login</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="<c:url value="/registrazione"/>#services">Register</a>
+                        <a class="page-scroll" href="<c:url value="/registrazione"/>#services">Registrati</a>
                     </li>
                 <% } %>
             </ul>

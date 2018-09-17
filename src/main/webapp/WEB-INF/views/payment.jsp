@@ -58,7 +58,7 @@
                         <div class="form-group">
                             <div class="col-md-12"><strong>Tipo di carta:</strong></div>
                             <div class="col-md-12">
-                                <select id="CreditCardType" name="CreditCardType" class="form-control">
+                                <select id="CreditCardType" name="CreditCardType" class="form-control" required>
                                     <option value="5">Visa</option>
                                     <option value="6">MasterCard</option>
                                     <option value="7">American Express</option>
@@ -68,18 +68,18 @@
                         </div>
                         <div class="form-group">
                             <div class="col-md-12"><strong>Numero Carta di Credito</strong></div>
-                            <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" /></div>
+                            <div class="col-md-12"><input type="text" class="form-control" name="car_number" value="" required/></div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12"><strong>CVV Carta:</strong></div>
-                            <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" /></div>
+                            <div class="col-md-12"><input type="text" class="form-control" name="car_code" value="" required/></div>
                         </div>
                         <div class="form-group">
                             <div class="col-md-12">
                                 <strong>Scadenza</strong>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" name="">
+                                <select class="form-control" name="" required>
                                     <option value="">Mese</option>
                                     <option value="01">01</option>
                                     <option value="02">02</option>
@@ -96,7 +96,7 @@
                                 </select>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                <select class="form-control" name="">
+                                <select class="form-control" name="" required>
                                     <option value="">Anno</option>
                                     <option value="2015">2015</option>
                                     <option value="2016">2016</option>

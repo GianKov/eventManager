@@ -35,8 +35,7 @@ public class CartController {
             }
 
             else{
-                model.addAttribute("Failure","Errore nell'aggiunta dei biglietti");
-                return "redirect:/event/eventDesc";
+                redirectAttributes.addFlashAttribute("Failure","Errore, hai acquistato troppi biglietti per questo evento!");
             }
 
         }
@@ -47,7 +46,15 @@ public class CartController {
 
     @RequestMapping("/getCart")
     public String retrieveCart(HttpSession session, Model model){
+        if(session.getAttribute("user").equals("guest")) {
+            model.addAttribute("Err", "Non hai effettuato l'accesso");
+            return "home";
+        }
         List<Ticket> tickets=cartDao.getAllTick((String)session.getAttribute("user"),"ATTESA");
+        if(tickets.isEmpty()){
+            model.addAttribute("Err", "Il tuo carrello è vuoto!");
+            return "home";
+        }
         model.addAttribute("tickets",tickets);
         return "cart";
 

@@ -38,6 +38,8 @@ public class EventDaoImpl implements EventDao {
                 eventToAdd.setEventName(rs.getString("NOME"));
                 eventToAdd.setPlace(rs.getString("LUOGO"));
                 eventToAdd.setDate(rs.getString("DATA"));
+                eventToAdd.setPrice(rs.getFloat(6));
+                eventToAdd.setSeats(rs.getInt("POSTIDISPONIBILI"));
                 //System.out.println(rs.getString("LUOGO")+rs.getString("NOME")+rs.getString("ID"));
                 eventList.add(eventToAdd);
             }
@@ -53,16 +55,23 @@ public class EventDaoImpl implements EventDao {
         DBManager dbObj=new DBManager();
         List<Event> eventList = new ArrayList<Event>();
         String resU=res.toUpperCase();
-        String sql = "SELECT * FROM EVENTO WHERE NOME='"+resU+"' "+"OR LUOGO='"+resU+"'";
-        System.out.println(sql);
-        ResultSet rs=dbObj.executeQuery(sql);
+        Connection con = dbObj.getConnection();
+        PreparedStatement prepStat = null;
+        ResultSet rs = null;
         try {
+            String sql = "SELECT * FROM EVENTO WHERE NOME LIKE ? OR LUOGO=?";
+            prepStat=con.prepareStatement(sql);
+            prepStat.setString(1,resU+"%");
+            prepStat.setString(2,resU);
+            rs=prepStat.executeQuery();
             while (rs.next()) {
                 Event eventToAdd = new Event();
                 eventToAdd.setIdEvent(rs.getString("ID"));
                 eventToAdd.setEventName(rs.getString("NOME"));
                 eventToAdd.setPlace(rs.getString("LUOGO"));
                 eventToAdd.setDate(rs.getString("DATA"));
+                eventToAdd.setPrice(rs.getFloat(6));
+                eventToAdd.setSeats(rs.getInt("POSTIDISPONIBILI"));
                 //System.out.println(rs.getString("LUOGO")+rs.getString("NOME")+rs.getString("ID"));
                 eventList.add(eventToAdd);
             }

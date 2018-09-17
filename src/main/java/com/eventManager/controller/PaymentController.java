@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
 import java.util.List;
@@ -32,27 +33,29 @@ public class PaymentController {
     }
 
     @RequestMapping(value="/rng",method= RequestMethod.POST)
-    public String validate(HttpSession session,Model model){
+    public String validate(HttpSession session,Model model, RedirectAttributes redirectedAttributes){
         ValidatePayment tool=new ValidatePayment();
         boolean check=tool.checkPayment(13);
         if(check) {
             boolean check2=cartdao.confBoughtTickets((String)session.getAttribute("user"));
             if(check2) {
-                System.out.println("Pagamento avvenuto");
+                redirectedAttributes.addFlashAttribute("Confirm","Biglietti acquistati con successo!");
                 return "redirect:/payment/resume";
             }
-
-            else
-                System.out.println("Biglietti non aggiornati");
         }
-        else
-            System.out.println("Non avvenuto");
-        return "payment";
+
+        redirectedAttributes.addFlashAttribute("Error","Ci sono stati degli errori con il pagamento");
+        return "redirect:/cart/getCart";
+
     }
 
     @RequestMapping("/resume")
-    public String viewOrders(HttpSession session,Model model){
+    public String viewOrders(HttpSession session, Model model, RedirectAttributes redirectAttributes ){
         List<Ticket> ticksBought=cartdao.getAllTick((String)session.getAttribute("user"),"ACQUISTATO");
+        if(ticksBought.isEmpty()){
+            redirectAttributes.addFlashAttribute("Err","Non ci sono acquisti effettuati da visualizzare!");
+            return "redirect:/";
+        }
         model.addAttribute("TicketsB",ticksBought);
         return "Riepilogo";
     }

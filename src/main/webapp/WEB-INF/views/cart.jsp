@@ -11,6 +11,7 @@
     <div class="container-fluid">
         <c:if test="${!(TickRemoved==null)}"><div class="alert alert-success">${TickRemoved}</div></c:if>
         <c:if test="${!(TickNotRemoved==null)}"><div class="alert alert-danger">${TickNotRemoved}</div></c:if>
+        <c:if test="${!(Error==null)}"><div class="alert alert-danger">${Error}</div></c:if>
         <div class="col-lg-8 col-lg-offset-2 text-center">
             <h1 class="section-heading">Il tuo carrello</h1>
         </div>
@@ -35,7 +36,6 @@
                 <td>${tickets.place}</td>
                 <td>${tickets.secName}</td>
                 <td>${tickets.price}</td>
-                <td><img id="profileImage" src="data:image/png;base64,${tickets.qrImage}"></td>
                 <td>
                     <form method="POST" action="<c:url value="/cart/delTicket"/>">
                         <input type="hidden" name="idTick" value="${tickets.id}">

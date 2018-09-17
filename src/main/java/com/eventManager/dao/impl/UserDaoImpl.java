@@ -51,8 +51,6 @@ public class UserDaoImpl implements UserDao {
 
     public boolean registerNewUser(String name, String surname, String birthDate, String Address, String email, String password, String password2){
         boolean check=false;
-        Random rand = new Random();
-
         if(!password.equals(password2))
             return check;
         User account = new User();

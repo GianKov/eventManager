@@ -9,22 +9,22 @@ public class Event {
     private String place;
     private String category;
     private String date;
-    private String price;
-    private String seats;
+    private Float price;
+    private Integer seats;
 
-    public String getPrice() {
+    public Float getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(Float price) {
         this.price = price;
     }
 
-    public String getSeats() {
+    public Integer getSeats() {
         return seats;
     }
 
-    public void setSeats(String seats) {
+    public void setSeats(Integer seats) {
         this.seats = seats;
     }
 

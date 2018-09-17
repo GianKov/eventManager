@@ -3,6 +3,7 @@
 <section id="services">
 
     <div class="container-fluid">
+        <c:if test="${!(Confirm==null)}"><div class="alert alert-success">${Confirm}</div></c:if>
         <div class="col-lg-8 col-lg-offset-2 text-center">
             <h1 class="section-heading">Riepilogo acquisto</h1>
         </div>

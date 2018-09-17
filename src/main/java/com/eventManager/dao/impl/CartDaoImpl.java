@@ -18,21 +18,38 @@ public class CartDaoImpl implements CartDao {
         DBManager db = new DBManager();
         Connection con = db.getConnection();
         PreparedStatement prepStat = null;
+        PreparedStatement prepStat2 = null;
+        Integer count=0;
         boolean check=true;
         for(Integer i=0;i<qty;i++) {
-            try {
-                String sql = "INSERT INTO BIGLIETTO (SETTOREID,STATO,CARTID) VALUES (?,?,?)";
-                prepStat = con.prepareStatement(sql);
-                prepStat.setString(1, sectorId);
-                prepStat.setString(2, "ATTESA");
-                prepStat.setString(3, userId);
-                Integer j = prepStat.executeUpdate();
-                if (j < 0) {
-                    check = false;
-                }
+            //Controllo del numero di biglietti acquistati per evento
+            try
+            {
+            String sql2="SELECT COUNT(settore.idevento) FROM BIGLIETTO JOIN SETTORE on biglietto.settoreid=settore.idsettore AND cartid=?";
+            prepStat2=con.prepareStatement(sql2);
+            prepStat2.setString(1,userId);
+            ResultSet rs=prepStat2.executeQuery();
+            if(rs.next()){
+                count=rs.getInt(1);
+            }}catch (SQLException e) {
+                    e.printStackTrace(); }
+            if(count>7)
+                return false;
+            else {
+                try {
+                    String sql = "INSERT INTO BIGLIETTO (SETTOREID,STATO,CARTID) VALUES (?,?,?)";
+                    prepStat = con.prepareStatement(sql);
+                    prepStat.setString(1, sectorId);
+                    prepStat.setString(2, "ATTESA");
+                    prepStat.setString(3, userId);
+                    Integer j = prepStat.executeUpdate();
+                    if (j < 0) {
+                        check = false;
+                    }
 
-            } catch (SQLException e) {
-                e.printStackTrace();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
         return check;

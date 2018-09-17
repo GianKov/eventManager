@@ -23,16 +23,4 @@ public class DBManager {
         return conn;
     }
 
-    public ResultSet executeQuery(String query){
-        Connection conn=this.getConnection();
-        PreparedStatement prepStat = null;
-        ResultSet rs = null;
-        try{
-        prepStat=conn.prepareStatement(query);
-        rs = prepStat.executeQuery();}
-        catch(SQLException e){
-            e.printStackTrace();
-        }
-        return rs;
-    }
 }

@@ -8,7 +8,11 @@
             <h1 class="section-heading">Login</h1>
         </div>
     </div>
+
+
+
     <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        <c:if test="${!(Conferma==null)}"><div class="alert alert-success">${Conferma}</div></c:if>
         <form role="form" action="Log" method=post>
             <hr class="colorgraph">
             <div class="form-group">
@@ -21,6 +25,7 @@
                 <a href="<c:url value="/registrazione"/>">Clicca qui se non sei registrato.</a>
             </div>
             <c:if test="${!(Error==null)}"><div class="alert alert-danger">${Error}</div></c:if>
+
             <hr class="colorgraph">
             <div class="row">
                 <div class="col-md-6 mx-auto"><input type="submit" value="Login" class="btn btn-primary btn-block btn-lg " ></div>
