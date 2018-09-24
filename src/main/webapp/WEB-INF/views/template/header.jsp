@@ -66,6 +66,7 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
+                <%--<input type="hidden" id="pageurl" name="pageurl" value="${requestScope['javax.servlet.forward.request_uri']}">--%>
                 <li>
                     <a class="page-scroll" href="<c:url value="/event/eventList"/>#services">Eventi</a>
                 </li>
@@ -77,6 +78,7 @@
                     <li><a href="<c:url value="/cart/getCart" />">Carrello</a></li>
                     <li><a href="<c:url value="/payment/resume" />">Acquisti</a></li>
                     <li><a href="<c:url value="/logout" />">Logout</a></li>
+
                 <%--<c:if test="${pageContext.request.userPrincipal.name != 'admin'}">--%>
 
                 <%--//</c:if>--%>

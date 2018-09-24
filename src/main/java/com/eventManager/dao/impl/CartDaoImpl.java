@@ -10,7 +10,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class CartDaoImpl implements CartDao {
@@ -25,9 +30,10 @@ public class CartDaoImpl implements CartDao {
             //Controllo del numero di biglietti acquistati per evento
             try
             {
-            String sql2="SELECT COUNT(settore.idevento) FROM BIGLIETTO JOIN SETTORE on biglietto.settoreid=settore.idsettore AND cartid=?";
+            String sql2="SELECT COUNT(settore.idevento) FROM BIGLIETTO JOIN SETTORE on biglietto.settoreid=settore.idsettore AND cartid=? WHERE biglietto.settoreid=?";
             prepStat2=con.prepareStatement(sql2);
             prepStat2.setString(1,userId);
+                prepStat2.setString(2,sectorId);
             ResultSet rs=prepStat2.executeQuery();
             if(rs.next()){
                 count=rs.getInt(1);
@@ -116,10 +122,15 @@ public class CartDaoImpl implements CartDao {
         ResultSet rs=null;
         List<Ticket> tickSummary=new ArrayList<Ticket>();
         boolean check=true;
+        LocalDate localDate=LocalDate.now();
+        Date data = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        String date= new SimpleDateFormat("ddMMyyyy").format(data);
+        System.out.println(date);
         try{
-            String sql="UPDATE BIGLIETTO SET STATO='ACQUISTATO' WHERE CARTID=?";
+            String sql="UPDATE BIGLIETTO SET STATO='ACQUISTATO', ACQDATA=? WHERE CARTID=?";
             prepStat=con.prepareStatement(sql);
-            prepStat.setString(1,userID);
+            prepStat.setString(1,date);
+            prepStat.setString(2,userID);
             Integer i = prepStat.executeUpdate();
             if(i<1)
                 check=false;

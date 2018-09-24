@@ -19,7 +19,7 @@ public class LoginController{
 
     @RequestMapping("/login")
     public String Login(){
-        return "Login";
+        return "login";
     }
 
     @RequestMapping(value="/Log", method=RequestMethod.POST)
@@ -39,7 +39,7 @@ public class LoginController{
             if(password.equals(""))
                 msgToAdd="Attenzione, il campo Password è vuoto!";
             model.addAttribute("Error",msgToAdd);
-            return "Login";
+            return "login";
         }
     }
 }

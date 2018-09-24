@@ -57,6 +57,6 @@ public class PaymentController {
             return "redirect:/";
         }
         model.addAttribute("TicketsB",ticksBought);
-        return "Riepilogo";
+        return "resume";
     }
 }

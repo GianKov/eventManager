@@ -9,7 +9,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.portlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpSession;
@@ -26,7 +25,7 @@ public class CartController {
         System.out.println("Al cart viene passato"+idSec+qty+idEv);
         if(session.getAttribute("user").equals("guest")) {
             model.addAttribute("Error","Per poter aggiungere elementi al carrello devi effettuare il login!");
-            return "Login";
+            return "login";
         }
         else{
             boolean check=cartDao.addToCart((String)session.getAttribute("user"),idSec,qty);

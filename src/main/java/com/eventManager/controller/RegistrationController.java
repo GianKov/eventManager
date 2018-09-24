@@ -31,7 +31,7 @@ public class RegistrationController {
         } else {
             msg="Registrazione effettuata con successo!";
             model.addAttribute("Conferma",msg);
-            return "Login";
+            return "login";
         }
     }
 }
