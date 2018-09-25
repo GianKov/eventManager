@@ -11,17 +11,21 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.ui.Model;
 
 @Controller
+//Controller to handle registration operations
 public class RegistrationController {
 
     private UserDao UsDao=new UserDaoImpl();
 
+    //Simple mapping for viewing reg page
     @RequestMapping("/registrazione")
     public String Registrazione(){ return "registrazione"; }
 
+    //Mapping for registering new user
     @RequestMapping(value="/Register", method=RequestMethod.POST)
     public String executeRegister(@RequestParam("first_name")String first_name,@RequestParam("last_name")String last_name,@RequestParam("DataN")String DataN,@RequestParam("indirizzo")String indirizzo, @RequestParam("email")String email, @RequestParam("password")String password, @RequestParam("password_confirmation")String password_confirmation, Model model){
         String msg="";
         boolean check = UsDao.registerNewUser(first_name, last_name, DataN ,indirizzo ,email ,password ,password_confirmation);
+        //Errors are displayed
         if(!check) {
             msg="Impossibile registrare l'utente, provare con una email differente!";
             if(!password_confirmation.equals(password))

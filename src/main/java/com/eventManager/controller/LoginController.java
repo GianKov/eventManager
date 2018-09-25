@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import javax.servlet.http.HttpSession;
 
 @Controller
+//Controller to handle login operations
 public class LoginController{
 
     private UserDao UsDao= new UserDaoImpl();
@@ -22,6 +23,7 @@ public class LoginController{
         return "login";
     }
 
+    //Mapping for validating login
     @RequestMapping(value="/Log", method=RequestMethod.POST)
     public String log(@RequestParam("inputEmail")String email, @RequestParam("inputPassword")String password, Model model, HttpSession session) {
         User user=UsDao.checkLogin(email,password);

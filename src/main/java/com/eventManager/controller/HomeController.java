@@ -14,21 +14,19 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Controller
+//Controller to handle simple homepage operations
 public class HomeController {
 
+    //First page shown
     @RequestMapping("/")
     public String home(){
-        LocalDate localDate=LocalDate.now();
-        Date data = Date.from(localDate.atStartOfDay(ZoneId.systemDefault()).toInstant());
-        String date= new SimpleDateFormat("ddMMyyyy").format(data);
-        System.out.println(date);
         return "home";
     }
 
+    //Mapping logout
     @RequestMapping("/logout")
     public String logout(HttpSession session, RedirectAttributes redirectAttributes, HttpServletRequest request){
         session.invalidate();
-
         //System.out.println(request.getRequestURL().toString());
         //redirectAttributes.addFlashAttribute("Err","Logout effettuato correttamente!");
         return "home";

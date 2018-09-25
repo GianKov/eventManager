@@ -17,31 +17,34 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/event")
+//Controller for handling events
 public class EventController {
 
     @Autowired
     private EventDao evDao;
 
+    //Mapping for getting every event list
     @RequestMapping("/eventList")
     public String getEvLis(Model model){
-
-        System.out.println("wewe");
         List<Event> events=evDao.getEventList();
-
         model.addAttribute("events",events);
         return "eventList";
     }
 
+    //Mapping for getting list given an input
     @RequestMapping(value="/research",method=RequestMethod.POST)
     public String getEvRes(@RequestParam("search")String searchd, Model model){
         List<Event> events=evDao.getEventListByName(searchd);
+        //If the research didn't give any result an error will be displayed
+        if(events.isEmpty())
+            model.addAttribute("Failure","Nessun evento trovato, prova con un nuovo input!");
         model.addAttribute("events",events);
         return "eventList";
     }
 
+    //Mapping for getting description of an event
     @RequestMapping(value="/description",method=RequestMethod.POST)
         public String getEvDesc(@RequestParam("id")String idTS, Model model){
-            System.out.println("L'id che mi viene passato e"+idTS);
             List <Sector> sectors = evDao.getSectorList(idTS);
             Event evento=evDao.getEventByID(idTS);
             model.addAttribute("eventotr",evento);

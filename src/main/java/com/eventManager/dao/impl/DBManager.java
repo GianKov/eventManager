@@ -2,7 +2,7 @@ package com.eventManager.dao.impl;
 
 
 import java.sql.*;
-
+//Database object for executing operations
 public class DBManager {
 
     public Connection getConnection (){

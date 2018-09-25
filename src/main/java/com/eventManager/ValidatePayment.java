@@ -9,7 +9,7 @@ public class ValidatePayment {
         this.transactionNumb=rand.nextInt(100)+1;
     }
     public boolean checkPayment(int mod){
-        System.out.println(transactionNumb);
+        //Dummy control
         if(transactionNumb%mod==0)
             return false;
         else

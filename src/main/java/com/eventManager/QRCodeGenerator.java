@@ -13,6 +13,7 @@ import java.util.Base64;
 
 
 public class QRCodeGenerator {
+
     public String getQRCodeByString(String id) throws WriterException, IOException {
         QRCodeWriter qrCodeWriter=new QRCodeWriter();
         BitMatrix bitMatrix=qrCodeWriter.encode(id, BarcodeFormat.QR_CODE, 150, 150);
@@ -20,8 +21,8 @@ public class QRCodeGenerator {
         MatrixToImageWriter.writeToStream(bitMatrix,"PNG",pngOutput);
         byte[] pngData=pngOutput.toByteArray();
         byte[] encoded= Base64.getEncoder().encode(pngData);
+        //Byte array is formatted into string that will be transformed into img by the view
         String base64encoded=new String(encoded,"UTF-8");
-        //System.out.println(encoded);
         return base64encoded;
     }
 }

@@ -16,19 +16,22 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/cart")
+//Controller to handle cart operations
 public class CartController {
 
     private CartDao cartDao=new CartDaoImpl();
 
+    //Mapping for adding to cart
     @RequestMapping(value="/aggtoCart",method= RequestMethod.POST)
     public String addTick(@RequestParam("idSec")String idSec, @RequestParam("quantita")Integer qty, @RequestParam("idEv")String idEv, HttpSession session, Model model, RedirectAttributes redirectAttributes){
-        System.out.println("Al cart viene passato"+idSec+qty+idEv);
+
+        //If user isn't logged an error is displayed
         if(session.getAttribute("user").equals("guest")) {
             model.addAttribute("Error","Per poter aggiungere elementi al carrello devi effettuare il login!");
             return "login";
         }
         else{
-            boolean check=cartDao.addToCart((String)session.getAttribute("user"),idSec,qty);
+            boolean check=cartDao.addToCart((String)session.getAttribute("user"),idSec,qty,idEv);
             if(check){
                 redirectAttributes.addFlashAttribute("Successo","I biglietti sono stati aggiunti correttamente!");
             }
@@ -42,13 +45,15 @@ public class CartController {
         return "redirect:/event/eventList";
     }
 
-
+    //Mapping for returning cart view
     @RequestMapping("/getCart")
     public String retrieveCart(HttpSession session, Model model){
+        //User can't access to cart if he isn't logged
         if(session.getAttribute("user").equals("guest")) {
             model.addAttribute("Err", "Non hai effettuato l'accesso");
             return "home";
         }
+        //Getting all the tickets in a list
         List<Ticket> tickets=cartDao.getAllTick((String)session.getAttribute("user"),"ATTESA");
         if(tickets.isEmpty()){
             model.addAttribute("Err", "Il tuo carrello è vuoto!");
@@ -59,6 +64,7 @@ public class CartController {
 
     }
 
+    //Mapping for deleting ticket from cart
     @RequestMapping(value="/delTicket", method= RequestMethod.POST)
     public String deleteTicket(@RequestParam("idTick")String idTick, RedirectAttributes redirectAttributes){
         boolean check=cartDao.deleteTick(idTick);

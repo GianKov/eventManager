@@ -12,6 +12,7 @@ public class UserDaoImpl implements UserDao {
 
     @Override
     public User checkLogin (String email, String password){
+        //Database operation objects
         boolean check=false;
         User user = new User();
         user.setEmail("null");
@@ -26,7 +27,7 @@ public class UserDaoImpl implements UserDao {
                 prepStat.setString(2, password);
                 rs = prepStat.executeQuery();
                 if(!(rs.next())){
-
+                    //If user credentials aren't valid an empty User is returned
                     return user;
                 }
                 else{

@@ -16,13 +16,16 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/payment")
+
+//Controller that handles payment operations
 public class PaymentController {
     CartDao cartdao = new CartDaoImpl();
 
+    //Mapping for seeing tickets to buy
     @RequestMapping("/view")
-    //aggiungere totale da pagare, passare come parametro dal carrello
     public String getToView(HttpSession session, Model model){
         List<Ticket> summary=cartdao.getAllTick((String)session.getAttribute("user"),"ATTESA");
+        //Calculating total amount to pay
         Float tot = 0.00f;
         for(Ticket tick : summary){
             tot=tot+tick.getPrice();
@@ -32,6 +35,7 @@ public class PaymentController {
         return "payment";
     }
 
+    //Mapping for validating transaction
     @RequestMapping(value="/rng",method= RequestMethod.POST)
     public String validate(HttpSession session,Model model, RedirectAttributes redirectedAttributes){
         ValidatePayment tool=new ValidatePayment();
@@ -49,6 +53,7 @@ public class PaymentController {
 
     }
 
+    //Mapping for viewing tickets bought
     @RequestMapping("/resume")
     public String viewOrders(HttpSession session, Model model, RedirectAttributes redirectAttributes ){
         List<Ticket> ticksBought=cartdao.getAllTick((String)session.getAttribute("user"),"ACQUISTATO");

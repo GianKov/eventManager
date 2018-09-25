@@ -1,10 +1,3 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Gianmarco
-  Date: 23/08/2018
-  Time: 17:34
-  To change this template use File | Settings | File Templates.
---%>
 <%@include file="/WEB-INF/views/template/header.jsp"%>
 
 <section id="services">
