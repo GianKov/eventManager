@@ -33,11 +33,13 @@ public class EventController {
 
     //Mapping for getting list given an input
     @RequestMapping(value="/research",method=RequestMethod.POST)
-    public String getEvRes(@RequestParam("search")String searchd, Model model){
+    public String getEvRes(@RequestParam("search")String searchd, Model model,RedirectAttributes redirectAttributes){
         List<Event> events=evDao.getEventListByName(searchd);
         //If the research didn't give any result an error will be displayed
-        if(events.isEmpty())
-            model.addAttribute("Failure","Nessun evento trovato, prova con un nuovo input!");
+        if(events.isEmpty()) {
+            redirectAttributes.addFlashAttribute("Err", "Nessun evento trovato, prova con un nuovo input!");
+            return "redirect:/";
+        }
         model.addAttribute("events",events);
         return "eventList";
     }

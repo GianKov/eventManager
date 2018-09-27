@@ -74,7 +74,7 @@ public class EventDaoImpl implements EventDao {
                 eventToAdd.setDate(rs.getString("DATA"));
                 eventToAdd.setPrice(rs.getFloat(6));
                 eventToAdd.setSeats(rs.getInt("POSTIDISPONIBILI"));
-                //System.out.println(rs.getString("LUOGO")+rs.getString("NOME")+rs.getString("ID"));
+
                 eventList.add(eventToAdd);
             }
         } catch (SQLException e) {
@@ -109,7 +109,7 @@ public class EventDaoImpl implements EventDao {
                 evTR.setEventName(rs.getString("NOME"));
                 evTR.setPlace(rs.getString("LUOGO"));
                 evTR.setDate(rs.getString("DATA"));
-                System.out.println(rs.getString("LUOGO") + rs.getString("NOME") + rs.getString("DATA"));
+
 
             }
         } catch (SQLException e) {
