@@ -19,7 +19,7 @@
 
         <div class="col-md-5">
             <h3>${eventotr.eventName}</h3>
-            <p>Descrizione</p>
+            <p>${eventotr.description}</p>
             <p>${eventotr.place}</p>
             <p>${eventotr.date}</p>
         </div>

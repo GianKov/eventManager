@@ -105,6 +105,7 @@ public class EventDaoImpl implements EventDao {
 
             while (rs.next()) {
 
+                evTR.setDescription(rs.getString("DESCRIZIONE"));
                 evTR.setIdEvent(rs.getString("ID"));
                 evTR.setEventName(rs.getString("NOME"));
                 evTR.setPlace(rs.getString("LUOGO"));

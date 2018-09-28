@@ -11,7 +11,15 @@ public class Event {
     private String date;
     private Float price;
     private Integer seats;
+    private String description;
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     public Float getPrice() {
         return price;
     }

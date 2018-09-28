@@ -60,7 +60,7 @@ public class UserDaoImplTest {
 
     @Test
     //Testing adding a new user with existing email, boolean value returned should be false
-    public void testAddAlreadyExistUser() throws Exception{
+    public void testAddAlreadyExistUser(){
         User toTest = newUser();
         toTest.setEmail("admin@live.it");
         boolean check = dao.registerNewUser(toTest.getNome(), toTest.getCognome(), toTest.getDataN(), toTest.getIndirizzo(), toTest.getEmail(), toTest.getPassword(), toTest.getPassword());

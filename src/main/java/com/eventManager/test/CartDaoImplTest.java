@@ -82,12 +82,12 @@ public class CartDaoImplTest {
     //Testing adding a random ticket to a random user
     public void testAddingTicket() {
         //for(int i=0;i<2;i++) {
-            String usId=randomUser();
-            String secId=randomSector();
-            String evId=getEvId(secId);
-            boolean check=cdao.addToCart(usId,secId,1,evId);
-            System.out.println("Tentativo aggiunta biglietto a userid,settoreid,eventid: "+usId+" "+secId+" "+evId+" ");
-            assertTrue(check);
+        String usId=randomUser();
+        String secId=randomSector();
+        String evId=getEvId(secId);
+        boolean check=cdao.addToCart(usId,secId,1,evId);
+        System.out.println("Tentativo aggiunta biglietto a userid,settoreid,eventid: "+usId+" "+secId+" "+evId+" ");
+        assertTrue(check);
         //}
     }
 
