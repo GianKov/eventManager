@@ -28,7 +28,7 @@
                 <td>${events.eventName}</td>
                 <td>${events.date}</td>
                 <td>${events.place}</td>
-                <td>${events.price}</td>
+                <td>$ ${events.price}</td>
                 <td>${events.seats}</td>
                 <td>
                     <form method="POST" action="<c:url value="/event/description"/>">

@@ -28,7 +28,7 @@ public class EventDaoImpl implements EventDao {
 
         try {
 
-            String sql = "SELECT * FROM EVENTO";
+            String sql = "SELECT * FROM EVENTO WHERE POSTIDISPONIBILI>0";
             prepStat = con.prepareStatement(sql);
             rs = prepStat.executeQuery();
             //Adding element for every record in result set
@@ -60,7 +60,7 @@ public class EventDaoImpl implements EventDao {
         PreparedStatement prepStat = null;
         ResultSet rs = null;
         try {
-            String sql = "SELECT * FROM EVENTO WHERE NOME LIKE ? OR LUOGO=?";
+            String sql = "SELECT * FROM EVENTO WHERE NOME LIKE ? OR LUOGO=? AND POSTIDISPONIBILI>0";
             prepStat = con.prepareStatement(sql);
             //Research is quite precise
             prepStat.setString(1, resU + "%");
@@ -95,7 +95,7 @@ public class EventDaoImpl implements EventDao {
 
         try {
 
-            String sql = "SELECT * FROM EVENTO WHERE ID=?";
+            String sql = "SELECT * FROM EVENTO WHERE ID=? AND POSTIDISPONIBILI>0";
 
             prepStat = con.prepareStatement(sql);
             prepStat.setString(1, id);

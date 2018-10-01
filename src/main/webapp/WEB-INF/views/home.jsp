@@ -6,7 +6,7 @@
             <c:if test="${!(Err==null)}"><div class="alert alert-danger">${Err}</div></c:if>
             <h1 id="homeHeading">Benvenuti su EventManager!</h1>
             <hr>
-            <p>EventManager è uno dei migliori siti in Italia per acquistare biglietti per tutti i tipi di evento!</p>
+            <p>EventManager e' uno dei migliori siti in Italia per acquistare biglietti per tutti i tipi di evento!</p>
             <form role="form" id="form-buscar" action="<c:url value="/event/research"/>" method="post">
                 <div class="form-group">
                     <div class="input-group">
@@ -25,7 +25,7 @@
     </div>
 </header>
 
-<%--<div class="panel panel-default">
+<div class="panel panel-default">
     <div class="panel-body">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
     <!-- Carousel indicators -->
@@ -63,7 +63,12 @@
         <div class="item">
 
             <img class="img-responsive center-block" src="<c:url value="/resources/img/eventImages/3.png" />" alt="Third Slide">
-
+            <div class="carousel-caption">
+            <form action="<c:url value="/event/description"/>" method="POST">
+                <input type="hidden" id="id" name="id" value="3">
+                <input type="submit" value="PARTECIPA ORA!" class="btn btn-sm btn-primary"></a>
+            </form>
+        </div>
         </div>
     </div>
     <!-- Carousel controls -->
@@ -75,10 +80,10 @@
     </a>
 </div>
     </div>
-</div>--%>
+</div>
 
 
-<%@include file="/WEB-INF/views/template/eventsHome.jsp"%>
+<%--<%@include file="/WEB-INF/views/template/eventsHome.jsp"%>--%>
 
 <section class="bg-primary" id="about">
     <div class="container">
@@ -86,7 +91,8 @@
             <div class="col-lg-8 col-lg-offset-2 text-center">
                 <h2 class="section-heading">I migliori eventi d'Italia!</h2>
                 <hr class="light">
-                <p class="text-faded">Camarket is the Big Online Store for All kind of products. We also free delivery all kind of our products as your ordering! So we are always stay-connecting with all customers!</p>
+                <p class="text-faded">Se non sai ancora a quale evento vuoi partecipare clicca su Vai agli eventi per visualizzare tutti gli eventi!
+                Se stai avendo problemi tecnici o vuoi collaborare con noi non esitare a contattarci!</p>
                 <p class="text-faded">
 
 

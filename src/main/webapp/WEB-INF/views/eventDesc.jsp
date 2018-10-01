@@ -43,7 +43,7 @@
         <tr>
             <td>${eventotr.eventName}</td>
             <td>${sectors.name}</td>
-            <td>${sectors.price}</td>
+            <td>$ ${sectors.price}</td>
             <td>${sectors.seatsAvail}</td>
             <td>
                 <form method="POST" action="<c:url value="/cart/aggtoCart"/>">
