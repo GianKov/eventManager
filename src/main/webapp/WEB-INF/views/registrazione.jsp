@@ -17,17 +17,17 @@
 
                     <div class="col-xs-12 col-sm-6 col-md-6">
                             <div class="form-group">
-                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1" required>
+                            <input type="text" name="first_name" id="first_name" class="form-control input-lg" placeholder="Nome" tabindex="1" required>
                             </div>
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2" required>
+                            <input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Cognome" tabindex="2" required>
                         </div>
                     </div>
                 </div>
                 <div class="form-group">
-                    <input type="text" name="DataN" id="DataN" class="form-control input-lg" placeholder="Data di nascita" tabindex="3" required>
+                    <input type="text" name="DataN" id="DataN" class="form-control input-lg" placeholder="Data di nascita giorno/mese/anno" tabindex="3" required>
                 </div>
                 <div class="form-group">
                     <input type="indirizzo" name="indirizzo" id="indirizzo" class="form-control input-lg" placeholder="Indirizzo" tabindex="4" required>
@@ -43,7 +43,7 @@
                     </div>
                     <div class="col-xs-12 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Confirm Password" tabindex="6" required>
+                            <input type="password" name="password_confirmation" id="password_confirmation" class="form-control input-lg" placeholder="Conferma Password" tabindex="6" required>
                         </div>
                     </div>
                 </div>
@@ -83,4 +83,5 @@
     </div><!-- /.modal -->
 </div>
 </section>
+
 

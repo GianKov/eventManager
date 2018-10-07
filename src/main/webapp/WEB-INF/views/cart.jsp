@@ -24,11 +24,11 @@
         <tbody>
         <c:forEach items="${tickets}" var="tickets">
             <tr>
-                <td>${tickets.eventName}</td>
-                <td>${tickets.date}</td>
-                <td>${tickets.place}</td>
-                <td>${tickets.secName}</td>
-                <td>${tickets.price}</td>
+                <td>${tickets.getEventName()}</td>
+                <td>${tickets.getDate()}</td>
+                <td>${tickets.getPlace()}</td>
+                <td>${tickets.getSecName()}</td>
+                <td>$ ${tickets.getPrice()}</td>
                 <td>
                     <form method="POST" action="<c:url value="/cart/delTicket"/>">
                         <input type="hidden" name="idTick" value="${tickets.id}">

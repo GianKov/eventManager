@@ -18,10 +18,10 @@
         </div>
 
         <div class="col-md-5">
-            <h3>${eventotr.eventName}</h3>
-            <p>${eventotr.description}</p>
-            <p>${eventotr.place}</p>
-            <p>${eventotr.date}</p>
+            <h3>${eventotr.getEventName()}</h3>
+            <p>${eventotr.getDescription()}</p>
+            <p>${eventotr.getPlace()}</p>
+            <p>${eventotr.getDate()}</p>
         </div>
     </div>
     <br />
@@ -41,10 +41,10 @@
     <tbody>
     <c:forEach items="${sectors}" var="sectors">
         <tr>
-            <td>${eventotr.eventName}</td>
-            <td>${sectors.name}</td>
-            <td>$ ${sectors.price}</td>
-            <td>${sectors.seatsAvail}</td>
+            <td>${eventotr.getEventName()}</td>
+            <td>${sectors.getName()}</td>
+            <td>$ ${sectors.getPrice()}</td>
+            <td>${sectors.getSeatsAvail()}</td>
             <td>
                 <form method="POST" action="<c:url value="/cart/aggtoCart"/>">
                 <select name="quantita">

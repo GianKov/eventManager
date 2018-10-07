@@ -25,11 +25,11 @@
         <tbody>
         <c:forEach items="${events}" var="events">
             <tr>
-                <td>${events.eventName}</td>
-                <td>${events.date}</td>
-                <td>${events.place}</td>
-                <td>$ ${events.price}</td>
-                <td>${events.seats}</td>
+                <td>${events.getEventName()}</td>
+                <td>${events.getDate()}</td>
+                <td>${events.getPlace()}</td>
+                <td>$ ${events.getPrice()}</td>
+                <td>${events.getSeats()}</td>
                 <td>
                     <form method="POST" action="<c:url value="/event/description"/>">
                         <input type="hidden" name="id" value="${events.idEvent}">
