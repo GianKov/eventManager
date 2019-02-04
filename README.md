@@ -2,13 +2,13 @@ Ticket Selling E-Commerce Web Application
 
 ![Home Page](https://github.com/GianKov/eventManager/blob/master/src/main/webapp/WEB-INF/resources/img/em.PNG)
 
-![Search]
+![Search](https://github.com/GianKov/eventManager/blob/master/src/main/webapp/WEB-INF/resources/img/emSearch.PNG)
 
-![Buy]
+![Buy](https://github.com/GianKov/eventManager/blob/master/src/main/webapp/WEB-INF/resources/img/emBuy.PNG)
 
-![Cart]
+![Cart](https://github.com/GianKov/eventManager/blob/master/src/main/webapp/WEB-INF/resources/img/emCh.PNG)
 
-![Pay]
+![Pay](https://github.com/GianKov/eventManager/blob/master/src/main/webapp/WEB-INF/resources/img/emFin.PNG)
 
-![Tickets]
+![Tickets](https://github.com/GianKov/eventManager/blob/master/src/main/webapp/WEB-INF/resources/img/emTick.PNG)
 
