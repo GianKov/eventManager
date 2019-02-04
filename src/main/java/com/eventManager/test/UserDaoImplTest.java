@@ -2,6 +2,7 @@ package com.eventManager.test;
 
 import com.eventManager.dao.impl.UserDaoImpl;
 import com.eventManager.model.User;
+import org.junit.After;
 import org.junit.Test;
 import org.springframework.test.annotation.Repeat;
 
@@ -66,5 +67,8 @@ public class UserDaoImplTest {
         boolean check = dao.registerNewUser(toTest.getNome(), toTest.getCognome(), toTest.getDataN(), toTest.getIndirizzo(), toTest.getEmail(), toTest.getPassword(), toTest.getPassword());
         assertFalse(check);
     }
+
+
+
 
 }

@@ -57,7 +57,9 @@ public class CartDaoImpl implements CartDao {
                     }
 
                 } catch (SQLException e) {
+
                     e.printStackTrace();
+                    return false;
                 }
             }
         }
